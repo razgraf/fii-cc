@@ -141,3 +141,4 @@
 {"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:00.546Z"}
 {"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:03.547Z"}
 {"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T13:48:03.550Z"}
+{"level":"info","message":"Listening on http://localhost:1234","timestamp":"2020-03-01T14:16:14.848Z"}
