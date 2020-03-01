@@ -1,0 +1,26 @@
+{
+  "name": "apiservices",
+  "version": "1.0.0",
+  "description": "API aggregator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fii-work"
+  },
+  "author": "Razvan Gabriel Apostu",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.8.21",
+    "dotenv": "^8.2.0",
+    "finalhandler": "^1.1.2",
+    "node-fetch": "^2.6.0",
+    "node-static": "^0.7.11",
+    "serve-static": "^1.14.1",
+    "typy": "^3.3.0",
+    "winston": "^3.2.1"
+  }
+}

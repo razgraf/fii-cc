@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+      <html>
+      <head>
+        <title>Metrics</title>
+          <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"> 
+          <meta content="utf-8" http-equiv="encoding" />
+      <style>
+        *{
+            box-sizing: border-box;
+            font-family: "Work Sans", "sans-serif";
+            font-weight: 400;
+        }  
+        html,body{
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        body{
+            align-items: center;
+            background: linear-gradient(45deg,#f77423,#fbce5b);
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+        }
+        .wrapper{
+            margin: 0 auto;
+            max-width : 1200px; 
+            width: 80%;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .card {
+            align-items: flex-start;
+            background-color: #ffffff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 70vh;
+            justify-content: flex-start;
+            padding: 80px;
+            width: 100%;
+        }
+        h1,h2{
+            font-weight: 600;
+        }
+
+        .grid{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 15px;
+            margin-bottom: 30px;
+        }
+        .box{
+            grid-column: span 1;
+            height: 100px;
+            background-color: #F8FAFF;
+            border: 1px solid #ebf0ff;
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .box > p{
+            font-size: 19pt;
+            font-weight: 600;
+        }
+        .list{
+            width: 100%;
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #ebf0ff;
+            padding: 15px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+        .row > span.label{
+            font-size: 10pt;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .row > span.label > span{
+            color: black;
+            font-weight: 400;
+            font-style: italic;
+        }
+        .row > span.label[data-type="info"]{
+            color: orange;
+        }
+        .row > span.label[data-type="error"]{
+            color: red;
+        }
+        .row > .content{
+            font-size: 10pt;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .row > .content > p{
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 10pt;
+        }
+        .row > .content > span{
+            font-size: 8pt;
+        }
+
+
+      </style>
+      </head>
+      <body>
+      <div class="wrapper">
+        <div class="card">
+            <h2>Metrics</h1>
+            <h3>Server metrics and log analysis</h3>
+
+            <ul class="list">
+                ${body}
+            </ul>
+        </div>
+    </body>
+</html>
