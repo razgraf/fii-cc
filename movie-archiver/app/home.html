@@ -181,7 +181,7 @@
                     toggleButton(false);
                     try{
                         let title = document.querySelector("#name");
-                        const url = new URL(`http://localhost:1234/?title=${title.value}`);
+                        const url = new URL(`../?title=${title.value}`,window.location.href);
                         container.innerHTML = `<p>Loading data...<p>`;
                         fetch(url)
                             .then(res => res.json())
@@ -191,8 +191,7 @@
                                     container.innerHTML = `<p class="warn">${res.error}<p>`;
                                 }
                                 else if (res.name) {
-                                    const file = `http://localhost:1234/${res.name}`;
-                    
+                                    const file = new URL(`../${res.name}`,window.location.href);
                                     container.innerHTML = `<iframe src="${file}" width="100%" height="500px">`
                                 }
                                 else   container.innerHTML = `<p class="warn">Unknown error<p>`;

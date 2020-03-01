@@ -142,3 +142,35 @@
 {"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:03.547Z"}
 {"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T13:48:03.550Z"}
 {"level":"info","message":"Listening on http://localhost:1234","timestamp":"2020-03-01T14:16:14.848Z"}
+{"level":"info","message":"Listening on http://localhost:4000","timestamp":"2020-03-01T14:24:55.970Z"}
+{"label":{"method":"GET","url":"/"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:25:00.183Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:25:00.672Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:25:04.777Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:25:04.779Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:25:10.437Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:25:10.437Z"}
+{"label":{"method":"GET","url":"/sourcemaps/inpage.js.map"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:25:10.444Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:06.429Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:26:06.429Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:06.857Z"}
+{"level":"info","message":"Listening on http://localhost:4000","timestamp":"2020-03-01T14:26:14.666Z"}
+{"level":"info","message":"Listening on http://localhost:4000","timestamp":"2020-03-01T14:26:38.024Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:43.696Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:26:43.698Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:44.107Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:50.337Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:26:50.337Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:26:50.732Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:13.125Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:28:13.126Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:13.586Z"}
+{"label":{"method":"GET","url":"/home?title=titanic"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:13.977Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:34.685Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:28:34.685Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:35.165Z"}
+{"label":{"method":"GET","url":"/?title=titanic"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:28:36.407Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:29:24.957Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T14:29:24.958Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:29:25.477Z"}
+{"label":{"method":"GET","url":"/?title=titanic"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:29:26.214Z"}
+{"label":{"method":"GET","url":"/file/titanic-1583072966626.pdf"},"level":"info","message":"Request received.","timestamp":"2020-03-01T14:29:27.322Z"}
