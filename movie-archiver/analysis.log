@@ -136,3 +136,8 @@
 {"label":{"method":"GET","url":"/?title=kimetsu%20no%20yaiba"},"level":"info","message":"Request received.","timestamp":"2020-02-27T15:26:42.738Z"}
 {"label":{"method":"GET","url":"/?title=kimetsu%20no%20yaiba"},"level":"info","message":"Request received.","timestamp":"2020-02-27T15:26:44.699Z"}
 {"label":{"method":"GET","url":"/?title=kimetsu%20no%20yaiba"},"level":"info","message":"Request received.","timestamp":"2020-02-27T15:27:19.599Z"}
+{"level":"info","message":"Listening on http://localhost:1234","timestamp":"2020-03-01T13:46:48.751Z"}
+{"label":{"method":"GET","url":"/"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:00.158Z"}
+{"label":{"method":"GET","url":"/favicon.ico"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:00.546Z"}
+{"label":{"method":"GET","url":"/home"},"level":"info","message":"Request received.","timestamp":"2020-03-01T13:48:03.547Z"}
+{"level":"info","message":"Returning homepage.","timestamp":"2020-03-01T13:48:03.550Z"}
