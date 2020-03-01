@@ -16,4 +16,4 @@ module.exports.HTTP_STATUS = {
   SERVER_ERROR: 500
 };
 
-module.exports.PORT = 1234;
+module.exports.PORT = process.env.PORT || 4000;
