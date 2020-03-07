@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const { t: typy } = require("typy");
 
 const utils = require("./utils");
-const { ENDPOINTS, HTTP_METHOD, HTTP_STATUS, PORT } = require("./constants");
-const { Person } = require("./model");
+const { ENDPOINTS, HTTP_METHOD, PORT } = require("./constants");
 const { PersonRouter } = require("./router");
 
 const server = http.createServer(handle);
