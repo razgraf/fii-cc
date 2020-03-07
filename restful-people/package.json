@@ -1,7 +1,7 @@
 {
-  "name": "movie-archiver",
+  "name": "restful-people",
   "version": "1.0.0",
-  "description": "API aggregator",
+  "description": "RESTful solution for a people ledger",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,8 +15,10 @@
   "author": "Razvan Gabriel Apostu",
   "license": "ISC",
   "dependencies": {
+    "body": "^5.1.0",
     "dayjs": "^1.8.21",
     "dotenv": "^8.2.0",
+    "mongoose": "^5.9.3",
     "node-fetch": "^2.6.0",
     "typy": "^3.3.0",
     "winston": "^3.2.1"
