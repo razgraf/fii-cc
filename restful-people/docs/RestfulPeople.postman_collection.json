@@ -63,7 +63,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"Bombardier\",\n    \"lastName\": \"Ionescu\",\n    \"age\": 31\n}",
+							"raw": "{\n    \"firstName\": \"George\",\n    \"lastName\": \"Popescu\",\n    \"age\": 21\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +99,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"extra\": 1\n}",
+							"raw": "{\n\t\"age\" : 22,\n\t\"relationships\" : []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +107,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4001/people/5e63f9cd1ed51e3e6a1ab5d3",
+							"raw": "http://localhost:4001/people/5e6a46a4915afb6632ca9b68",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -115,7 +115,7 @@
 							"port": "4001",
 							"path": [
 								"people",
-								"5e63f9cd1ed51e3e6a1ab5d3"
+								"5e6a46a4915afb6632ca9b68"
 							]
 						}
 					},
@@ -148,7 +148,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4001/people/5e640e096daf1b448e525b7c",
+							"raw": "http://localhost:4001/people/5e6a46b0915afb6632ca9b69",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -156,9 +156,122 @@
 							"port": "4001",
 							"path": [
 								"people",
-								"5e640e096daf1b448e525b7c"
+								"5e6a46b0915afb6632ca9b69"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "People | Connect",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\" : \"Brothers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "People | Disconnect",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\" : \"Brothers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						},
+						"description": "Remove connection between 2 people. Format: id1/id2/status"
+					},
+					"response": []
+				},
+				{
+					"name": "People | Replace Connection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"relationships\" : [\n\t\t{\n\t\t\t\"status\" : \"One\"\n\t\t},\n\t\t{\n\t\t\t\"status\" : \"Two\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						},
+						"description": "Replace connections between 2 people"
 					},
 					"response": []
 				}
@@ -195,7 +308,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://fii-cc-restful-people.herokuapp.com/people/id",
+							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e63f9cd1ed51e3e6a1ab5d3",
 							"protocol": "https",
 							"host": [
 								"fii-cc-restful-people",
@@ -204,7 +317,7 @@
 							],
 							"path": [
 								"people",
-								"id"
+								"5e63f9cd1ed51e3e6a1ab5d3"
 							]
 						}
 					},
@@ -224,7 +337,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"firstName\" : \"Razvan\",\n\t\"lastName\" : \"Apostu\",\n\t\"age\" : 21\n}",
+							"raw": "{\n    \"firstName\": \"George\",\n    \"lastName\": \"Popescu\",\n    \"age\": 21\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -261,7 +374,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"extra\": 1\n}",
+							"raw": "{\n\t\"age\" : 22,\n\t\"relationships\" : []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -312,7 +425,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e640e096daf1b448e525b7c",
+							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e6a46b0915afb6632ca9b69",
 							"protocol": "https",
 							"host": [
 								"fii-cc-restful-people",
@@ -321,9 +434,125 @@
 							],
 							"path": [
 								"people",
-								"5e640e096daf1b448e525b7c"
+								"5e6a46b0915afb6632ca9b69"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "People | Connect",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\" : \"Brothers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "https",
+							"host": [
+								"fii-cc-restful-people",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "People | Disconnect",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\" : \"Brothers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "https",
+							"host": [
+								"fii-cc-restful-people",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						},
+						"description": "Remove connection between 2 people. Format: id1/id2/status"
+					},
+					"response": []
+				},
+				{
+					"name": "People | Replace Connection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"relationships\" : [\n\t\t{\n\t\t\t\"status\" : \"One\"\n\t\t},\n\t\t{\n\t\t\t\"status\" : \"Two\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fii-cc-restful-people.herokuapp.com/people/5e6a46a4915afb6632ca9b68/5e6a4b43e6ebce67ab9fd30c",
+							"protocol": "https",
+							"host": [
+								"fii-cc-restful-people",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"people",
+								"5e6a46a4915afb6632ca9b68",
+								"5e6a4b43e6ebce67ab9fd30c"
+							]
+						},
+						"description": "Replace connections between 2 people"
 					},
 					"response": []
 				}
