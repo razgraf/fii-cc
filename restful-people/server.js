@@ -38,6 +38,8 @@ async function handlePeople(request, response) {
       if (await PersonRouter.POST({ parts, request, response })) return;
     } else if (method === HTTP_METHOD.PATCH) {
       if (await PersonRouter.PATCH({ parts, request, response })) return;
+    } else if (method === HTTP_METHOD.PUT) {
+      if (await PersonRouter.PUT({ parts, request, response })) return;
     } else if (method === HTTP_METHOD.DELETE) {
       if (await PersonRouter.DELETE({ parts, request, response })) return;
     }

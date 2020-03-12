@@ -14,7 +14,7 @@ class utils {
         .on("end", () => {
           builder = Buffer.concat(builder).toString();
           try {
-            const parsed = JSON.parse(builder);
+            const parsed = JSON.parse(builder || "{}");
             resolve(parsed);
           } catch (errorParser) {
             reject(errorParser);
