@@ -42,3 +42,20 @@
 
 1.  run `nodemon server.js` or `npm run develop`
 2.  navigate to `localhost:4001/people` and play with all the CRUD actions on the directory of people
+
+**Exposed functionality**
+
+The API will provide functionality for (_format specified in Postman_):
+
+1.  Creating a person (`POST people/`)
+2.  Retrieving a person's data (`GET people/:id`)
+3.  Editing a person's data (`PATCH people/:id`)
+4.  Removing a person (`DELETE people/:id`)
+5.  Marking a person as dead (`PATCH people/:id/kill`)
+
+    ***
+
+6.  Retrieving all people in the directory (`GET people/`)
+7.  Connecting two inidividuals (e.g. _A and B are 'Friends/...'_) (`POST people/:id1/:id2`)
+8.  Disconnecting two inidividuals (removing one type of connection) (e.g. _A and B aren't 'Friends' any more_) (`DELETE people/:id1/:id2`)
+9.  Replacing all connections between two inidividuals (`PUT people/:id1/:id2`)
