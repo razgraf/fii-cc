@@ -1,49 +1,57 @@
-function onSignIn(googleUser) {
-  console.log("Google Auth Response", googleUser);
-  // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-  const unsubscribe = firebase
-    .auth()
-    .onAuthStateChanged(function(firebaseUser) {
-      unsubscribe();
-      // Check if we are already signed-in Firebase with the correct user.
-      const id_token = googleUser.getAuthResponse().id_token;
-      if (!isUserEqual(googleUser, firebaseUser)) {
-        // Build Firebase credential with the Google ID token.
-        const credential = firebase.auth.GoogleAuthProvider.credential(
-          id_token
-        );
-        // Sign in with credential from the Google user.
-        firebase
-          .auth()
-          .signInWithCredential(credential)
-          .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-          });
-      } else {
-        console.log("User already signed-in Firebase.");
-      }
-    });
+console.log(ROOT);
+
+function init() {
+  gapi.load("auth2", () => {
+    gapi.auth2
+      .init({
+        client_id:
+          "192803036566-1qcajpvl19qnf9qu043o5fdoaq8762lk.apps.googleusercontent.com"
+      })
+      .then(
+        () => {
+          console.log("onInit");
+          const button = document.querySelector("#buttonSignIn");
+          button.style.opacity = 1;
+        },
+        error => {
+          console.log("onError");
+        }
+      );
+  });
 }
 
-function isUserEqual(googleUser, firebaseUser) {
-  if (firebaseUser) {
-    var providerData = firebaseUser.providerData;
-    for (var i = 0; i < providerData.length; i++) {
-      if (
-        providerData[i].providerId ===
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-        providerData[i].uid === googleUser.getBasicProfile().getId()
-      ) {
-        // We don't need to reauth the Firebase connection.
-        return true;
-      }
-    }
+function onSignIn(googleUser) {
+  const profile = googleUser.getBasicProfile();
+  const token = googleUser.getAuthResponse().id_token;
+  console.log("token: ", token ? "true" : "false");
+  console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log("Name: " + profile.getName());
+  console.log("Image URL: " + profile.getImageUrl());
+  console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+  requestConnection({ token });
+}
+
+function requestConnection({ token }) {
+  try {
+    const url = new URL(`${ROOT}/api/manage/${token}`);
+
+    fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          console.error("errorrrr");
+        } else {
+          console.log("here");
+          console.log(res);
+          window.location.reload(true);
+        }
+      })
+      .catch(error => {
+        console.error("catch");
+        throw new Error(error);
+      });
+  } catch (e) {
+    console.error(e);
   }
-  return false;
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social Network</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/connect.css" />
+
+    <meta name="google-signin-client_id" content="192803036566-1qcajpvl19qnf9qu043o5fdoaq8762lk.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <header>
+                <img class="cover" src="images/cover.png" />
+                <h1>Social Network</h1>
+                <h3>Make friends</h3>
+            </header>
+            <section>
+                <h4>Connect with your Google account</h4>
+                <div style="opacity: 0" id="buttonSignIn" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </section>
+
+            {{{body}}}
+
+        </div>
+    </div>
+
+    <script>
+        const ROOT = "{{{ ROOT }}}";
+    </script>
+    <script src="script/connect.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+
+</body>
+
+</html>
