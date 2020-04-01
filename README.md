@@ -4,8 +4,9 @@
 
 #### Collection
 
-[1. Movie-Archiver](###Movie-Archiver)  
-[2. Restful-People](###Restful-People)
+[1. Movie-Archiver](##Movie-Archiver)  
+[2. Restful-People](##Restful-People)
+[3. Social-Network](##Social-Network)
 
 ---
 
@@ -60,3 +61,22 @@ The API will provide functionality for (_format specified in Postman_):
 7.  Connecting two inidividuals (e.g. _A and B are 'Friends/...'_) (`POST people/:id1/:id2`)
 8.  Disconnecting two inidividuals (removing one type of connection) (e.g. _A and B aren't 'Friends' any more_) (`DELETE people/:id1/:id2`)
 9.  Replacing all connections between two inidividuals (`PUT people/:id1/:id2`)
+
+## Restful-People
+
+[April 2, 2020] **`/social-network`** → A social network powered by nodejs and Google APIs & Services
+#nodejs #express #google
+
+**Local setup**
+
+1.  run `nodemon server.js` or `npm run develop`
+2.  navigate to `localhost:4001/`
+
+---
+
+**Story**
+
+1. Setup a Nodejs & Express system, ready for server side rendering
+2. Upload the project to a git repository and ~~implement CI/CD with Google Cloud Build~~ (stopped: trigger created, but how do you bind env vars the right way...)
+3. `gcloud app deploy` with **Google App Engine**
+4.

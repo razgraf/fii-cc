@@ -1,0 +1,37 @@
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header > img.cover {
+  height: 300px;
+  object-fit: contain;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+header > h1 {
+  margin-bottom: 20px;
+  color: var(--color-primary);
+}
+
+header > h3 {
+  position: relative;
+  font-weight: 600;
+  margin: 0;
+  z-index: 2;
+}
+
+section {
+  background-color: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #eeeeee;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+  width: 100%;
+  padding: 20px;
+}
