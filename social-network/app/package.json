@@ -4,7 +4,9 @@
   "description": "A minimal social network for CC",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "develop": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +15,10 @@
   "author": "Razvan Gabriel Apostu & Mocanu Alexandru",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dayjs": "^1.8.21",
     "express": "^4.17.1",
+    "querystring": "^0.2.0",
     "typy": "^3.3.0"
   },
   "engines": {

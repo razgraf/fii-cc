@@ -1,13 +1,14 @@
 const express = require("express");
-const { t: typy } = require("typy");
+const parser = require("body-parser");
 
 const { endpoints, PORT } = require("./constants");
 
 const app = express();
+const router = express.Router();
 
-app.get(endpoints.home.root, (request, response) => {
-  response.send("Hello World");
-});
+app.use(parser.json());
+app.use(express.static(__dirname + "/public"));
+app.use("/", router);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
