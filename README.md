@@ -37,6 +37,7 @@
 **Live preview**
 
 1.  Visit [https://fii-cc-restful-people.herokuapp.com/people](https://fii-cc-restful-people.herokuapp.com/people)
+2.  Or watch a demo on youtube [https://www.youtube.com/watch?v=15VcwAY24HQ](https://www.youtube.com/watch?v=15VcwAY24HQ)
 
 **Local setup**
 
