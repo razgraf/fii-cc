@@ -1,4 +1,7 @@
 const firebase = require("firebase");
+const dayjs = require("dayjs");
+const relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 const { t: typy } = require("typy");
 
 module.exports.handleConnectedUser = function({ token, response }) {
@@ -59,7 +62,13 @@ module.exports.handleGetPosts = async function() {
       ...doc.data(),
       id: doc.id
     }))
-    .map(item => ({ ...item, isSelf: item.uid === user.uid }));
+    .map(item => ({
+      ...item,
+      isSelf: item.uid === user.uid,
+      timestamp: typy(item.timestamp).isTruthy
+        ? dayjs(item.timestamp * 1000).fromNow()
+        : ""
+    }));
 
   console.log(list);
 
@@ -94,7 +103,7 @@ module.exports.handleCreatePost = async function({ request, response }) {
     uid: user.uid,
     name: user.displayName,
     email: user.email,
-    timestamp: firebase.database.ServerValue.TIMESTAMP
+    timestamp: String(dayjs().unix())
   });
 
   response.send({ result: "success" });
