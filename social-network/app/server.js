@@ -12,7 +12,8 @@ const app = express();
 const {
   handleConnectedUser,
   handleDisconnectUser,
-  handleGetPosts
+  handleGetPosts,
+  handleCreatePost
 } = require("./handler");
 
 firebase.initializeApp(vendors.firebase.config);
@@ -50,7 +51,7 @@ app.get(endpoints.connect.root, function(req, res) {
 });
 
 app.get(endpoints.createPost.root, function(req, res) {
-  const user = true; //firebase.auth().currentUser;
+  const user = firebase.auth().currentUser;
   if (user) {
     res.render("main", {
       layout: "createPost",
@@ -68,6 +69,15 @@ app.get(endpoints.api.manage.root, function(req, res) {
 
 app.get(endpoints.api.disconnect.root, function(req, res) {
   handleDisconnectUser({ response: res });
+});
+
+app.post(endpoints.api.post.root, function(req, res) {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    handleCreatePost({ response: res, request: req });
+  } else {
+    res.send({ result: "error" });
+  }
 });
 
 app.listen(PORT, () => {

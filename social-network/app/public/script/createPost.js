@@ -78,24 +78,39 @@ function initMap() {
 }
 
 function requestCreatePost({ text, address, coordinates }) {
-  // try {
-  //   const url = new URL(`${ROOT}/api/manage/${token}`);
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (res.error) {
-  //         console.error("errorrrr");
-  //       } else {
-  //         console.log("here");
-  //         console.log(res);
-  //         window.location.reload(true);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error("catch");
-  //       throw new Error(error);
-  //     });
-  // } catch (e) {
-  //   console.error(e);
-  // }
+  try {
+    const url = new URL(`${ROOT}/api/post`);
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        text,
+        address,
+        ...coordinates
+      }),
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          console.error("errorrrr");
+        } else {
+          console.log("success");
+          window.location.href = "/";
+        }
+      })
+      .catch(error => {
+        console.error("catch");
+        throw new Error(error);
+      })
+      .finally(() => {
+        document.querySelector("#buttonSave").dataset.active = true;
+      });
+  } catch (e) {
+    console.error(e);
+  } finally {
+    document.querySelector("#buttonSave").dataset.active = true;
+  }
 }

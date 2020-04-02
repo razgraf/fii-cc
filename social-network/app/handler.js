@@ -27,16 +27,17 @@ module.exports.handleDisconnectUser = function({ response }) {
     });
 };
 
-const createPostHtml = ({content, location, name, timestamp}) => `
+const createPostHtml = ({ content, location, name, timestamp, isSelf }) => `
 <div class="item">
 <div class="header">
   <div class="picture">
-    <p>${typy(name,"[0]").safeString}</p>
+    <p>${typy(name, "[0]").safeString}</p>
   </div>
   <div class="content">
     <p class="title">${typy(name).safeString}</p>
     <p class="description">${typy(timestamp).safeString}</p>
   </div>
+  ${isSelf ? `<div class="labelSelf"><span>You</span></div>` : ``}
 </div>
 <div class="content">
   <p>${typy(content).safeString}</p>
@@ -47,18 +48,54 @@ const createPostHtml = ({content, location, name, timestamp}) => `
 </div>
 `;
 
-
-
-
-module.exports.handleGetPosts = async function(){
-
-
+module.exports.handleGetPosts = async function() {
   const database = firebase.firestore();
 
+  const user = firebase.auth().currentUser;
+
   const raw = await database.collection("posts").get();
-  const list = await typy(raw, "docs").safeArray.map(doc => ({ ...doc.data(), id: doc.id }));
+  const list = await typy(raw, "docs")
+    .safeArray.map(doc => ({
+      ...doc.data(),
+      id: doc.id
+    }))
+    .map(item => ({ ...item, isSelf: item.uid === user.uid }));
 
-  
-  return list.map(item => createPostHtml(item));
+  console.log(list);
 
-}
+  return list.map(item => createPostHtml(item)).join("");
+};
+
+module.exports.handleCreatePost = async function({ request, response }) {
+  const database = firebase.firestore();
+  const posts = database.collection("posts");
+
+  const { body } = request;
+
+  const user = firebase.auth().currentUser;
+
+  if (
+    typy(body, "text").isFalsy ||
+    typy(body, "address").isFalsy ||
+    typy(body, "longitude").isNullOrUndefined ||
+    typy(body, "latitude").isNullOrUndefined
+  ) {
+    response.send({ result: "error" });
+    return;
+  }
+
+  await posts.add({
+    content: typy(body, "text").safeString,
+    location: typy(body, "address").safeString,
+    coordinates: {
+      latitude: body.latitude,
+      longitude: body.longitude
+    },
+    uid: user.uid,
+    name: user.displayName,
+    email: user.email,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  });
+
+  response.send({ result: "success" });
+};

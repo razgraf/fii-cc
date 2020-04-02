@@ -38,6 +38,9 @@ module.exports.endpoints = {
     },
     disconnect: {
       root: "/api/disconnect"
+    },
+    post: {
+      root: "/api/post"
     }
   }
 };
