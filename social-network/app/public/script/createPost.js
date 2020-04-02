@@ -1,5 +1,6 @@
-address = null;
-text = null;
+let address = null;
+let text = null;
+let coordinates = {};
 (function() {
   initialize();
 })();
@@ -9,7 +10,8 @@ function initialize() {
   button.onclick = () => {
     text = document.querySelector("#postInput").value;
     if (text != null && text != "" && address != null) {
-      console.log("click successful");
+      requestCreatePost({ text, address, coordinates });
+      button.dataset.active = false;
     } else {
       console.log("no text or no address");
     }
@@ -42,6 +44,10 @@ function initMap() {
     console.log(
       mapsMouseEvent.latLng.lat() + " " + mapsMouseEvent.latLng.lng()
     );
+    coordinates = {
+      latitude: mapsMouseEvent.latLng.lat(),
+      longitude: mapsMouseEvent.latLng.lng()
+    };
 
     let URL =
       "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
@@ -58,6 +64,9 @@ function initMap() {
       .then(function(data) {
         // This is the JSON from our response
         address = data.results[0].formatted_address;
+
+        console.log(address);
+        document.querySelector("#preview").innerText = String(address);
         infoWindow.setContent(address);
         infoWindow.open(map);
       })
@@ -66,4 +75,27 @@ function initMap() {
         console.warn("Something went wrong.", err);
       });
   });
+}
+
+function requestCreatePost({ text, address, coordinates }) {
+  // try {
+  //   const url = new URL(`${ROOT}/api/manage/${token}`);
+  //   fetch(url)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       if (res.error) {
+  //         console.error("errorrrr");
+  //       } else {
+  //         console.log("here");
+  //         console.log(res);
+  //         window.location.reload(true);
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error("catch");
+  //       throw new Error(error);
+  //     });
+  // } catch (e) {
+  //   console.error(e);
+  // }
 }
