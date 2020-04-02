@@ -1,3 +1,5 @@
+address = null;
+text = null;
 (function() {
   initialize();
 })();
@@ -5,7 +7,12 @@
 function initialize() {
   const button = document.querySelector("#buttonSave");
   button.onclick = () => {
-    console.log("click");
+    text = document.querySelector("#postInput").value;
+    if (text != null && text != "" && address != null) {
+      console.log("click successful");
+    } else {
+      console.log("no text or no address");
+    }
   };
 }
 
@@ -50,7 +57,8 @@ function initMap() {
       })
       .then(function(data) {
         // This is the JSON from our response
-        infoWindow.setContent(data.results[0].formatted_address);
+        address = data.results[0].formatted_address;
+        infoWindow.setContent(address);
         infoWindow.open(map);
       })
       .catch(function(err) {
