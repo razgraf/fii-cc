@@ -66,6 +66,7 @@ The API will provide functionality for (_format specified in Postman_):
 
 [April 2, 2020] **`/social-network`** → A social network powered by nodejs and Google APIs & Services
 #nodejs #express #google
+#Alex+Razvan
 
 **Local setup**
 
@@ -82,3 +83,7 @@ The API will provide functionality for (_format specified in Postman_):
 4. Integrate google sign in and the "amazing" custom auth flow.
    - Reference: https://firebase.google.com/docs/auth/web/google-signin (advanced flow with manual sign-in and nodejs host)
 5. Big reveal. Add handlebars to the mess.
+6. Implement Firebase Auth and Firestore
+7. Implement Maps API and Geocode
+8. Create-post page
+9. News feed

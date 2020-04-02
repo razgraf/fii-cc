@@ -40,7 +40,6 @@ const createPostHtml = ({ content, location, name, timestamp, isSelf }) => `
     <p class="title">${typy(name).safeString}</p>
     <p class="description">${typy(timestamp).safeString}</p>
   </div>
-  ${isSelf ? `<div class="labelSelf"><span>You</span></div>` : ``}
 </div>
 <div class="content">
   <p>${typy(content).safeString}</p>
@@ -62,6 +61,7 @@ module.exports.handleGetPosts = async function() {
       ...doc.data(),
       id: doc.id
     }))
+    .sort((a, b) => a.timestamp < b.timestamp)
     .map(item => ({
       ...item,
       isSelf: item.uid === user.uid,
