@@ -9,7 +9,11 @@ const { endpoints, PORT, ROOT, vendors } = require("./constants");
 
 const app = express();
 
-const { handleConnectedUser, handleDisconnectUser } = require("./handler");
+const {
+  handleConnectedUser,
+  handleDisconnectUser,
+  handleGetPosts
+} = require("./handler");
 
 firebase.initializeApp(vendors.firebase.config);
 
@@ -25,10 +29,12 @@ app.use(cors());
 app.use(parser.json());
 app.use(express.static("public"));
 
-app.get("/", function(req, res) {
+app.get("/", async (req, res) => {
   const user = firebase.auth().currentUser;
   if (user) {
-    res.render("main", { layout: "index", ROOT });
+    const posts = await handleGetPosts();
+
+    res.render("main", { layout: "index", ROOT, posts });
   } else {
     res.redirect(endpoints.connect.root);
   }

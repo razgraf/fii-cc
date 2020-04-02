@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   <meta content="utf-8" http-equiv="encoding" />
   <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/index.css" />
 
   <meta name="google-signin-client_id" content="192803036566-1qcajpvl19qnf9qu043o5fdoaq8762lk.apps.googleusercontent.com">
   <meta name="google-signin-cookiepolicy" content="single_host_origin">
@@ -19,9 +20,26 @@
 <body>
   <div class="wrapper">
     <div class="card">
-      <h1>Social Network</h1>
-      <h3>Make friends</h3>
-      <button style="opacity: 0" id="buttonSignOut">Sign out</button>
+      <header>
+        <h1>News Feed</h1>
+        <div class="button" id="buttonCreatePost"><span>+ Create new post</span></button>
+      </header>
+
+      <main>
+        <section id="settings">
+          <h3>Settings</h3>
+          <div data-theme="delete" style="opacity: 0" class="button" id="buttonSignOut"><span>Sign out</span></div>
+        </section>
+
+        <section id="posts">
+          <h3>Latest Posts</h3>
+          <div class="list">
+            {{{posts}}}
+          </div>
+
+        </section>
+      </main>
+
     </div>
   </div>
 

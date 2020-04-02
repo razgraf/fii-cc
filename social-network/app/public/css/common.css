@@ -6,6 +6,7 @@
     rgba(120, 50, 255, 1) 0%,
     rgba(50, 150, 250, 1) 91%
   );
+  --gradient-red: linear-gradient(45deg, #ed213a, #93291e);
 
   --color-dark: #1f2133;
 }
@@ -22,7 +23,7 @@ body {
 }
 body {
   align-items: flex-start;
-  background-image: var(--gradient);
+  background: var(--gradient);
   display: flex;
   min-height: 100vh;
   justify-content: center;
@@ -63,8 +64,8 @@ h2 {
 }
 
 .field > input {
-  background-color: #f8faff;
-  border: 1px solid #ebf0ff;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
   border-radius: 8px;
   flex: 1;
   font-size: 14pt;
@@ -86,7 +87,7 @@ h2 {
 }
 .button {
   align-items: center;
-  background: linear-gradient(45deg, #f77423, #fbce5b);
+  background: var(--gradient);
   background-size: 200%;
   background-position-x: 0%;
   border-radius: 4px;
@@ -113,6 +114,10 @@ h2 {
   text-align: center;
   font-size: 11pt;
   font-weight: 500;
+}
+
+.button[data-theme="delete"] {
+  background: var(--gradient-red);
 }
 
 .preview {

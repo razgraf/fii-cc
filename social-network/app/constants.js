@@ -29,7 +29,7 @@ module.exports.endpoints = {
     root: "/connect"
   },
   createPost: {
-    root:"/createPost"
+    root: "/createPost"
   },
 
   api: {
@@ -42,7 +42,10 @@ module.exports.endpoints = {
   }
 };
 module.exports.PORT = process.env.PORT || 4001;
-module.exports.ROOT = process.env.ROOT || "http://localhost:4001";
+module.exports.ROOT =
+  process.env.STAGE_PRODUCTION == "true"
+    ? process.env.ROOT_PRODUCTION
+    : process.env.ROOT;
 
 module.exports.vendors = {
   firebase: {

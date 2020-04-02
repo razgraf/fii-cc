@@ -79,4 +79,6 @@ The API will provide functionality for (_format specified in Postman_):
 1. Setup a Nodejs & Express system, ready for server side rendering
 2. Upload the project to a git repository and ~~implement CI/CD with Google Cloud Build~~ (stopped: trigger created, but how do you bind env vars the right way...)
 3. `gcloud app deploy` with **Google App Engine**
-4.
+4. Integrate google sign in and the "amazing" custom auth flow.
+   - Reference: https://firebase.google.com/docs/auth/web/google-signin (advanced flow with manual sign-in and nodejs host)
+5. Big reveal. Add handlebars to the mess.
