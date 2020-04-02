@@ -43,6 +43,19 @@ app.get(endpoints.connect.root, function(req, res) {
   }
 });
 
+app.get(endpoints.createPost.root, function(req, res) {
+  const user = true; //firebase.auth().currentUser;
+  if (user) {
+    res.render("main", {
+      layout: "createPost",
+      ROOT,
+      KEY: process.env.ENV_GOOGLE_MAPS_KEY
+    });
+  } else {
+    res.redirect(endpoints.home.root);
+  }
+});
+
 app.get(endpoints.api.manage.root, function(req, res) {
   handleConnectedUser({ token: req.params.token, response: res });
 });

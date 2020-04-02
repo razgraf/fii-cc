@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Social Network</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/createPost.css" />
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <h1>Social Network</h1>
+            <h3>Create Post</h3>
+
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+        const ROOT = "{{{ ROOT }}}";
+        const KEY = "{{{ KEY }}}";
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{{KEY}}}=&callback=initMap"></script>
+
+
+    <script src="script/createPost.js"></script>
+
+
+</body>
+
+</html>

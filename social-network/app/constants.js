@@ -28,6 +28,9 @@ module.exports.endpoints = {
   connect: {
     root: "/connect"
   },
+  createPost: {
+    root:"/createPost"
+  },
 
   api: {
     manage: {
