@@ -1,3 +1,14 @@
+(function() {
+  initialize();
+})();
+
+function initialize() {
+  const button = document.querySelector("#buttonSave");
+  button.onclick = () => {
+    console.log("click");
+  };
+}
+
 function initMap() {
   map = null;
   infoWindow = null;
