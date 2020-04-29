@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Network</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/create.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="card">
+        <header>
+          <h1>Create Post</h1>
+          <a href="/" data-theme="gray" class="button"
+            ><span>Back to News Feed</span></a
+          >
+        </header>
+        <main>
+          <div class="postContent">
+            <div class="left">
+              <div class="field">
+                <label>Identity</label>
+                <input
+                  id="identity"
+                  autocomplete="false"
+                  placeholder="Your name. Or maybe ... 'Anonymous'"
+                />
+              </div>
+              <div class="field">
+                <label>Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  autocomplete="false"
+                  placeholder="Password so you can edit/remove the post later"
+                />
+              </div>
+              <div class="field area">
+                <label>Content</label>
+                <textarea autocomplete="false" id="content"></textarea>
+              </div>
+              <div class="field">
+                <label>Image</label>
+                <div class="row">
+                  <input
+                    autocomplete="false"
+                    id="imageQuery"
+                    type="text"
+                    placeholder="Search for an image on Bing"
+                  />
+                  <div class="button" id="imageSearch" data-theme="secondary">
+                    <span>Search</span>
+                  </div>
+                </div>
+              </div>
+              <div class="button" id="buttonSave"><span>Save</span></div>
+            </div>
+            <div class="right">
+              <div id="imagePreviewContainer">
+                <img id="imagePreview" src="" />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script></script>
+
+    <script type="module" src="dist/create.js"></script>
+  </body>
+</html>

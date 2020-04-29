@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Network</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="card">
+        <header>
+          <h1>News Feed</h1>
+          <a href="/create" class="button" id="buttonCreatePost"
+            ><span>+ Create new post</span></a
+          >
+        </header>
+
+        <main>
+          <section id="posts">
+            <h3>Latest Posts</h3>
+            <div class="list" id="list"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="dist/index.js"></script>
+  </body>
+</html>
