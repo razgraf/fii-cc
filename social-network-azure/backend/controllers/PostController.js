@@ -1,4 +1,6 @@
 async function create(req, res) {
+  console.log(req.params);
+  console.log(req.body);
   res.json({ message: "Create not implemented yet" });
 }
 
