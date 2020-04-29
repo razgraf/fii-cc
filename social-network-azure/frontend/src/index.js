@@ -6,7 +6,7 @@
 function buildPost(result) {
   if (!result) return "";
 
-  const { identity, content, image } = result;
+  const { identity, content, image, id } = result;
 
   const post = `
     <div class="header">
@@ -20,28 +20,53 @@ function buildPost(result) {
     </div>
     <div class="content">
       <p>${content}</p>
+      <div class="words"></div>
       <div class="image">
         <img src="${image}" />
       </div>
     </div>
     `;
 
-  return post;
+  const container = document.createElement("div");
+  container.classList += "item";
+  container.classList += `item-${id}`;
+  container.innerHTML = item;
+
+  return container;
+}
+
+async function resolveTags({ id, image }) {
+  const subscriptionKey = process.env.AZURE_COGNITIVE_KEY;
+  const host = process.env.AZURE_COGNITIVE_HOST + "/images/visualsearch";
+
+  const url = new URL(host);
+  const params = { q: text, count: 1 };
+  Object.keys(params).forEach((key) =>
+    url.searchParams.append(key, params[key])
+  );
+
+  const result = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Ocp-Apim-Subscription-Key": subscriptionKey,
+    },
+  });
+
+  const body = await result.json();
 }
 
 function test() {
   const item = buildPost({
+    id: 1,
     identity: "Razvan",
     content: "Salsa",
     image:
       "https://pictures.topspeed.com/IMG/crop/201608/2003-ferrari-enzo-26_1600x0w.jpg",
   });
-  const container = document.createElement("div");
-  container.classList += "item";
-  container.innerHTML = item;
+
   const list = document.querySelector("#list");
-  console.log(list);
-  list.appendChild(container);
+  list.appendChild(item);
+  resolveTags(item);
 }
 
 function retrieve() {
