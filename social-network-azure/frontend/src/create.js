@@ -25,8 +25,8 @@ function initialize() {
   document.querySelector("#imageSearch").onclick = async () => {
     const text = document.querySelector("#imageQuery").value;
 
-    const subscriptionKey = process.env.AZURE_COGNITIVE_KEY;
-    const host = process.env.AZURE_COGNITIVE_HOST + "/images/search";
+    const subscriptionKey = CONFIG.AZURE_COGNITIVE_KEY;
+    const host = CONFIG.AZURE_COGNITIVE_HOST + "/images/search";
 
     const url = new URL(host);
     const params = { q: text, count: 1 };

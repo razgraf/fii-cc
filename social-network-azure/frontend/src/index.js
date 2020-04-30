@@ -36,8 +36,8 @@ function buildPost(result) {
 }
 
 async function resolveTags({ id, image }) {
-  const subscriptionKey = process.env.AZURE_COGNITIVE_KEY;
-  const host = process.env.AZURE_COGNITIVE_HOST + "/images/visualsearch";
+  const subscriptionKey = CONFIG.AZURE_COGNITIVE_KEY;
+  const host = CONFIG.AZURE_COGNITIVE_HOST + "/images/visualsearch";
 
   const url = new URL(host);
   const params = { q: text, count: 1 };
