@@ -112,7 +112,7 @@ function deleteFile() {
   console.log("deleted photo successfully");
 }
 
-async function UploadPhoto_v2(postId, imageUrl) {
+async function UploadPhoto_v2(postId, imageUrl, finalRemoveCallback) {
   const storage = require("azure-storage");
   const blobService = storage.createBlobService(
     process.env.BLOB_STORAGE_ACCOUNT,
@@ -130,6 +130,8 @@ async function UploadPhoto_v2(postId, imageUrl) {
         },
       },
       (err) => {
+        if (finalRemoveCallback) finalRemoveCallback();
+
         if (err) {
           console.log("eroare" + err);
           return;
@@ -146,10 +148,10 @@ async function create(req, res) {
   // insights.defaultClient.trackNodeHttpRequest({ request: res, response: res });
   const postArgs = req.body;
   const post = await postModel.addPost(postArgs);
-  await UploadPhoto_v2(post.id, post.imageUrl);
+  await UploadPhoto_v2(post.id, post.imageUrl, deleteFile);
   res.status(200);
   res.json({ post });
-  setTimeout(deleteFile, 2000);
+  // setTimeout(deleteFile, 2000); //WTF NO, SEE LINE 149;
 }
 
 async function get(req, res) {
