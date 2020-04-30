@@ -1,28 +1,28 @@
 (function () {
-  test();
-  // retrieve();
+  // test();
+  retrieve();
 })();
 
 function buildPost(result) {
   if (!result) return "";
 
-  const { identity, content, image, id } = result;
-
+  const { identity, content, id } = result;
+  const imageUrl = `https://socialnetworkstorage.blob.core.windows.net/social-network-photos/${id}.png?sv=2019-10-10&ss=bqtf&srt=sco&sp=rwdlacuptfx&se=2020-04-30T18:36:53Z&sig=btYR2ragWaNm%2FUAOl9y9dhn2PxX%2BfEYChitPBAwiRa8%3D&_=1588243026372`;
   const post = `
     <div class="header">
       <div class="picture">
-        <p>${String(identity)[0]}</p>
+        <p>${String(identity || "i")[0]}</p>
       </div>
       <div class="content">
-        <p class="title">${identity}</p>
+        <p class="title">${identity || "i"}</p>
         <p class="description">Amazing Post</p>
       </div>
     </div>
     <div class="content">
-      <p>${content}</p>
+      <p>${content || "c"}</p>
       <div class="words"></div>
       <div class="image">
-        <img src="${image}" />
+        <img src="${imageUrl}" />
       </div>
     </div>
     `;
@@ -33,26 +33,6 @@ function buildPost(result) {
   container.innerHTML = post;
 
   return container;
-}
-
-async function resolveTags({ id, image }) {
-  const subscriptionKey = CONFIG.AZURE_COGNITIVE_KEY;
-  const host = CONFIG.AZURE_COGNITIVE_HOST + "/images/visualsearch";
-
-  const url = new URL(host);
-  const params = { q: text, count: 1 };
-  Object.keys(params).forEach((key) =>
-    url.searchParams.append(key, params[key])
-  );
-
-  const result = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Ocp-Apim-Subscription-Key": subscriptionKey,
-    },
-  });
-
-  const body = await result.json();
 }
 
 function test() {
@@ -66,31 +46,33 @@ function test() {
 
   const list = document.querySelector("#list");
   list.appendChild(item);
-  resolveTags(item);
 }
 
 function retrieve() {
-  const endpoint = new URL("ALEX PUNE AICI");
+  const endpoint = new URL(
+    "https://fii-cc-social-network.azurewebsites.net/posts/"
+  );
 
   fetch(endpoint, {
-    method: "POST",
+    method: "GET",
   })
     .then((res) => res.json())
     .then((res) => {
       if (!res) return;
 
       const list = res; // SCHIMBA AICI DACA AI SALVAT IN O VARIABILA SAU LASA ASA DACA RESPONSE E ARRAY
-
+      console.log(res);
       list.forEach((element) => {
         try {
           const post = buildPost(element);
-          const container = document.createElement("div");
-          container.classList += "item";
-          container.innerHTML = post;
-          document.querySelector("#list").appendChild(container);
+
+          document.querySelector("#list").appendChild(post);
         } catch (e) {
           console.error(e);
         }
       });
+    })
+    .catch((e) => {
+      console.log(e);
     });
 }

@@ -1,4 +1,4 @@
-const link = null;
+let link = null;
 
 (function () {
   initialize();
@@ -13,13 +13,8 @@ function initialize() {
 
     if (!identity || !password || !content || !link) return;
 
-    requestCreatePost({ text, address, coordinates });
+    requestCreatePost();
     button.dataset.active = false;
-
-    if (text != null && text != "") {
-    } else {
-      console.log("no text or no address");
-    }
   };
 
   document.querySelector("#imageSearch").onclick = async () => {
@@ -58,20 +53,20 @@ function initialize() {
 
 function requestCreatePost() {
   const identity = document.querySelector("#identity").value;
-  const password = document.querySelector("#password").value;
-  const content = document.querySelector("#identity").value;
+  // const password = document.querySelector("#password").value;
+  const content = document.querySelector("#content").value;
 
   try {
     const url = new URL(
-      "ALEX PLACE THE ENPOINT HERE e.g. azurehost../posts/create"
+      "https://fii-cc-social-network.azurewebsites.net/posts/"
     );
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
         identity,
-        password,
+        // password,
         content,
-        image: link,
+        imageUrl: link,
       }),
       // credentials: "same-origin",
       headers: {
