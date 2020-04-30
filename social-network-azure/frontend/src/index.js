@@ -29,8 +29,8 @@ function buildPost(result) {
 
   const container = document.createElement("div");
   container.classList += "item";
-  container.classList += `item-${id}`;
-  container.innerHTML = item;
+  container.classList += ` item-${id}`;
+  container.innerHTML = post;
 
   return container;
 }
