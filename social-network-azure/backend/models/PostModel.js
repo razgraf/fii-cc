@@ -1,4 +1,5 @@
 const cosmosClient = require("@azure/cosmos").CosmosClient;
+const insights = require("../vendors/insights").client;
 
 class PostModel {
   constructor(cosmosClient, databaseId, containerId) {
@@ -48,7 +49,7 @@ class PostModel {
 
   async getPost(postId) {
     await this.checkDB();
-    console.log(postId);
+    // console.log(postId);
     const partitionKey = undefined;
     const { resource } = await this.container.item(postId, partitionKey).read();
     return resource;
