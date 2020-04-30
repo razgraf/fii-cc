@@ -2,12 +2,15 @@ const postModel = require("../vendors/cosmos").postModel;
 const insightsClient = require("../vendors/insights").client;
 const axios = require("axios");
 
+const http = require("https");
+const Stream = require("stream").Transform;
+const fs = require("fs");
+
+const storage = require("azure-storage");
+
 async function UploadPhoto(postId, imageUrl) {
   console.log(imageUrl);
-  const http = require("https");
-  const stream = require("stream").Transform;
-  const fs = require("fs");
-  const storage = require("azure-storage");
+
   const blobService = storage.createBlobService(
     process.env.BLOB_STORAGE_ACCOUNT,
     process.env.BLOB_STORAGE_KEY
@@ -77,13 +80,10 @@ async function UploadPhoto(postId, imageUrl) {
     })
     .end();
 }
-function download(imageUrl) {
-  const http = require("https"),
-    Stream = require("stream").Transform,
-    fs = require("fs");
-
+function download(imageUrl, callback) {
   console.log("downloading photo...");
-  http
+
+  return http
     .request(imageUrl, function (response) {
       var data = new Stream();
 
@@ -94,6 +94,7 @@ function download(imageUrl) {
       response.on("end", function () {
         fs.writeFileSync("image.png", data.read());
         console.log("downloaded photo successfully");
+        callback();
       });
     })
     .end();
@@ -110,31 +111,33 @@ function deleteFile() {
   });
   console.log("deleted photo successfully");
 }
+
 async function UploadPhoto_v2(postId, imageUrl) {
   const storage = require("azure-storage");
   const blobService = storage.createBlobService(
     process.env.BLOB_STORAGE_ACCOUNT,
     process.env.BLOB_STORAGE_KEY
   );
-  download(imageUrl);
-  console.log("creating blob...");
-  blobService.createBlockBlobFromLocalFile(
-    process.env.BLOB_CONTAINER_NAME,
-    postId + ".png",
-    "image.png",
-    {
-      contentSettings: {
-        contentType: "image/png",
+  download(imageUrl, () => {
+    console.log("creating blob...");
+    blobService.createBlockBlobFromLocalFile(
+      process.env.BLOB_CONTAINER_NAME,
+      postId + ".png",
+      "image.png",
+      {
+        contentSettings: {
+          contentType: "image/png",
+        },
       },
-    },
-    (err) => {
-      if (err) {
-        console.log("eroare" + err);
-        return;
+      (err) => {
+        if (err) {
+          console.log("eroare" + err);
+          return;
+        }
+        console.log("created blob successfully");
       }
-      console.log("created blob successfully");
-    }
-  );
+    );
+  });
 }
 async function create(req, res) {
   // console.log(req);
