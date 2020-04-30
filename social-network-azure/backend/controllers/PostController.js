@@ -118,7 +118,7 @@ async function UploadPhoto_v2(postId, imageUrl) {
   );
   download(imageUrl);
   console.log("creating blob...");
-  blobService.createAppendBlobFromLocalFile(
+  blobService.createBlockBlobFromLocalFile(
     process.env.BLOB_CONTAINER_NAME,
     postId + ".png",
     "image.png",
