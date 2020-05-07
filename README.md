@@ -62,7 +62,7 @@ The API will provide functionality for (_format specified in Postman_):
 8.  Disconnecting two inidividuals (removing one type of connection) (e.g. _A and B aren't 'Friends' any more_) (`DELETE people/:id1/:id2`)
 9.  Replacing all connections between two inidividuals (`PUT people/:id1/:id2`)
 
-## Restful-People
+## Social-Network
 
 [April 2, 2020] **`/social-network`** → A social network powered by nodejs and Google APIs & Services
 #nodejs #express #google
@@ -87,3 +87,12 @@ The API will provide functionality for (_format specified in Postman_):
 7. Implement Maps API and Geocode
 8. Create-post page
 9. News feed
+
+## Social-Network-Azure
+[Apr 30, 2020] **`/social-network-azure`** -> A social network powered by nodejs and Microsoft Azure APIs & Services
+#nodejs #express #azure
+#Alex + Razvan
+
+**Cloud deployment links**
+1. Backend app : https://fii-cc-social-network.azurewebsites.net/posts/
+2. Frontend app : https://fiisocialnetworkfront.z22.web.core.windows.net/
