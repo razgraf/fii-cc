@@ -7,7 +7,7 @@ function buildPost(result) {
   if (!result) return "";
 
   const { identity, content, id } = result;
-  const imageUrl = `https://socialnetworkstorage.blob.core.windows.net/social-network-photos/${id}.png?sv=2019-10-10&ss=bqtf&srt=sco&sp=rwdlacuptfx&se=2020-04-30T18:36:53Z&sig=btYR2ragWaNm%2FUAOl9y9dhn2PxX%2BfEYChitPBAwiRa8%3D&_=1588243026372`;
+  const imageUrl = `https://socialnetworkstorage.blob.core.windows.net/social-network-photos/${id}.png?sp=racwdl&st=2020-05-07T12:42:11Z&se=2021-04-13T12:42:00Z&sv=2019-10-10&sr=c&sig=HMOoPnOVwm9W3qbw3yLGrmcAfhviIQazLcsalMvin3o%3D`;
   const post = `
     <div class="header">
       <div class="picture">
@@ -60,7 +60,7 @@ function retrieve() {
     .then((res) => {
       if (!res) return;
 
-      const list = res; // SCHIMBA AICI DACA AI SALVAT IN O VARIABILA SAU LASA ASA DACA RESPONSE E ARRAY
+      const list = res;
       console.log(res);
       list.forEach((element) => {
         try {
