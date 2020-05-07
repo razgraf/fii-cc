@@ -11,24 +11,24 @@ class PostModel {
     this.container = null;
   }
   async init() {
-    console.log("Enter init");
+    // console.log("Enter init");
     const dbResponse = await this.client.databases.createIfNotExists({
       id: this.databaseId,
     });
-    console.log("Set up the database");
+    // console.log("Set up the database");
     this.database = dbResponse.database;
     const coResponse = await this.database.containers.createIfNotExists({
       id: this.collectionId,
     });
     this.container = coResponse.container;
-    console.log("Set up the container");
+    // console.log("Set up the container");
 
-    console.log("Init OK");
+    // console.log("Init OK");
   }
 
   async checkDB() {
     if (this.container == null) {
-      console.log("DB not initialised");
+      console.log("DB connection not initialised");
       await this.init((err) => {
         console.error(err);
       }).catch((err) => {
@@ -49,7 +49,6 @@ class PostModel {
 
   async getPost(postId) {
     await this.checkDB();
-    // console.log(postId);
     const partitionKey = undefined;
     const { resource } = await this.container.item(postId, partitionKey).read();
     return resource;
