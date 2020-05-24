@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fractal Land | Browse</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="pinterest" content="nopin" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Ubuntu:300,400,500,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="body">
+    <div class="loading-block active"></div>
+    <nav>
+      <div class="nav-content">
+        <a href="./" class="nav-logo"
+          ><img alt="Logo" src="image/logo.svg" draggable="false"
+        /></a>
+        <div class="nav-spacer"></div>
+        <menu class="nav-menu">
+          <li class="nav-menu-item active">
+            <a class="container" href="./"
+              ><i class="material-icons-round">public</i><span>Browse</span></a
+            >
+          </li>
+          <li class="nav-menu-item">
+            <a class="container" href="build.html"
+              ><i class="material-icons-round">build</i><span>Build</span></a
+            >
+          </li>
+          <li class="nav-menu-item">
+            <a class="container" href="account.html"
+              ><i class="material-icons-round">vpn_key</i
+              ><span>Account & Keys</span></a
+            >
+          </li>
+        </menu>
+      </div>
+    </nav>
+
+    <header>
+      <div class="content">
+        <div class="card">
+          <h1>
+            Create <span>beautiful</span> shapes,<br />
+            with an intuitive <span>tool & library</span>.
+          </h1>
+          <h4>
+            Use our API Key to create Fractals directly inside your website or
+            create and publish them using our proprietary builder.
+          </h4>
+          <div class="actions">
+            <a class="button-build" href="./build.html"
+              ><span>Build your own</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <section id="recommendations">
+        <div class="content">
+          <header>
+            <h2>The most popular <span>creations</span></h2>
+            <p>
+              Based on people's votes. Have a look at all of them for
+              inspiration. Only pieces created on the platform will appear here.
+            </p>
+          </header>
+          <div class="grid" id="fractal-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="content">
+        <div class="company">
+          <span
+            >©2020 - Project by Razvan Gabriel Apostu and Mocanu Alexandru
+            Badarau</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>
