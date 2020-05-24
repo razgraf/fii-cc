@@ -208,8 +208,10 @@ class Networking {
   static async getFractalListFromDB({ userId, limit, offset }) {
     await Networking.initialize();
 
-    const user = await UserModel.findOne({ _ud: userId });
+    const user = await UserModel.findOne({ _id: userId });
     if (!user) return false;
+
+    console.log(user);
 
     const list = await FractalModel.find({
       $or: [
@@ -225,7 +227,9 @@ class Networking {
           },
         },
       ],
-    }).sort("createdAt", -1);
+    });
+
+    console.log(list);
 
     if (!list) return [];
     return list.map((item) => ({

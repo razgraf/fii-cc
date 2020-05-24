@@ -3,7 +3,7 @@ const {
   FRACTAL_DEFINITIONS,
   HTTP_STATUS,
   ERRORS,
-  Generator
+  Generator,
 } = require("../constants");
 
 const Bcrypt = require("bcryptjs");
@@ -65,7 +65,7 @@ class Fractal {
       hash: e.hash,
       votes: e.votes,
       timestamp: e.createdAt,
-      username: e.username
+      username: e.username,
     };
   }
 
@@ -75,14 +75,18 @@ class Fractal {
     const payload = {
       userId,
       limit: parseInt(limit),
-      offset: parseInt(offset)
+      offset: parseInt(offset),
     };
 
     const list = await Networking.getFractalListFromDB(payload);
 
     if (!list || list.length === 0) return [];
 
-    return list.map(e => Fractal.format({ ...e, self: e.userId === userId }));
+    return list.map((e) => {
+      const self = String(e.userId) == String(userId);
+      console.log(e.userId, userId, self);
+      return Fractal.format({ ...e, self });
+    });
   }
 
   static async setPublish({ uuid, userId, access = 1 }) {
@@ -117,7 +121,7 @@ class Fractal {
     const fractal = await Networking.insertFractalIntoDB({
       ...reference,
       reference: uuid,
-      userId
+      userId,
     });
     console.log(fractal);
     if (!fractal) throw new Error(ERRORS.NETWORKING);
@@ -162,10 +166,10 @@ class Fractal {
         start: {
           symbol: String(definition.start.symbol),
           x: parseInt(definition.start.x),
-          y: parseInt(definition.start.y)
+          y: parseInt(definition.start.y),
         },
         rules,
-        angle: parseInt(definition.angle)
+        angle: parseInt(definition.angle),
       };
 
       console.log(parsedDefinition);
@@ -246,7 +250,7 @@ class Fractal {
 
     this.publicUrl = await Image.saveToBucket({
       key: `${this.uuid}.png`,
-      data: base64Image
+      data: base64Image,
     });
 
     return true;
@@ -261,7 +265,7 @@ class Fractal {
     const hashed = await Bcrypt.hash(
       stringify({
         ...this.definition,
-        rules
+        rules,
       }),
       1
     );
@@ -270,7 +274,7 @@ class Fractal {
       name: this.name,
       definition: JSON.stringify(this.definition),
       userId: this.userId,
-      hash: hashed
+      hash: hashed,
     });
 
     console.log(inserted);
@@ -311,7 +315,7 @@ class Fractal {
     let from = { ...start };
     let to = {
       x: 0,
-      y: 0
+      y: 0,
     };
 
     for (let i = 0; i < iterations; ++i) {

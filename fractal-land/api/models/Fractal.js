@@ -23,6 +23,10 @@ const FractalSchema = mongoose.Schema({
   reference: {
     type: String,
   },
+  access: {
+    type: Number,
+    default: 1,
+  },
 });
 
 FractalSchema.set("timestamps", true);

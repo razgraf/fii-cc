@@ -89,10 +89,30 @@ The API will provide functionality for (_format specified in Postman_):
 9. News feed
 
 ## Social-Network-Azure
+
 [Apr 30, 2020] **`/social-network-azure`** -> A social network powered by nodejs and Microsoft Azure APIs & Services
 #nodejs #express #azure
 #Alex + Razvan
 
 **Cloud deployment links**
+
 1. Backend app : https://fii-cc-social-network.azurewebsites.net/posts/
 2. Frontend app : https://fiisocialnetworkfront.z22.web.core.windows.net/
+
+## Fractal Land
+
+[Final Project] **`/fractal-land`** -> A fractal builder library and platform
+#nodejs #aws #lambda #html #css
+#Alex + Razvan
+
+![Screenshot of the platform](fractal-land.png)
+
+**Live preview**
+https://www.fii-cc.com.s3.amazonaws.com/index.html
+
+**Exposed functionality**
+
+1. An API that handles user registration, key/token management, fractal creation + others. Deployed with AWS Lambda Functions and **Serverless**.
+2. A MongoDB database to store valuable data
+3. A Web Platform (HTML, CSS, Vanilla JS) to help with the creation and management of fractals. Deployed in an S3 Bucket, https handled with Cloud Front.
+4. A library deployed to NPM for use outside of the platform (relies on user public keys that can be acquired with a Fractal-Land account).
