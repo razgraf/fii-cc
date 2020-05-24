@@ -15,33 +15,10 @@ async function UploadPhoto(postId, imageUrl) {
     process.env.BLOB_STORAGE_ACCOUNT,
     process.env.BLOB_STORAGE_KEY
   );
-  // var url = 'http://www.google.com/images/srpr/logo11w.png';
+
   let index = imageUrl.lastIndexOf(".");
   let type = imageUrl.substring(index + 1, imageUrl.length);
-  // let content = null;
-  // content = await axios.get(imageUrl, { responseType: "stream" });
-  // console.log(content.dat);
-  // if (content) {
-  //   blobService.createBlockBlobFromStream(
-  //     process.env.BLOB_CONTAINER_NAME,
-  //     postId + "." + type,
-  //     content,
-  //     content.writableLength,
-  //     {
-  //       contentSettings: {
-  //         contentType: "image/" + (type === "jpg" ? "jpeg" : type),
-  //       },
-  //     },
-  //     (err) => {
-  //       if (err) {
-  //         console.log("eroare" + err);
-  //         return;
-  //       }
-  //       console.log("succes");
-  //     }
-  //   );
-  // }
-  // return;
+
   http
     .request(imageUrl, function (response) {
       var data = new stream();
@@ -51,13 +28,11 @@ async function UploadPhoto(postId, imageUrl) {
         data.push(chunk);
       });
       console.log("data");
-      // console.log(data);
-      // content = data.read();
+
       size = data.writableLength;
       response.on("end", function () {
         console.log("end");
         console.log(data);
-        // fs.writeFileSync("image.png", data.read());
         blobService.createBlockBlobFromStream(
           process.env.BLOB_CONTAINER_NAME,
           postId + "." + type,
@@ -142,21 +117,14 @@ async function UploadPhoto_v2(postId, imageUrl, finalRemoveCallback) {
   });
 }
 async function create(req, res) {
-  // console.log(req);
-  // console.log(req.params);
-  // console.log(req.body);
-  // insights.defaultClient.trackNodeHttpRequest({ request: res, response: res });
   const postArgs = req.body;
   const post = await postModel.addPost(postArgs);
   await UploadPhoto_v2(post.id, post.imageUrl, deleteFile);
   res.status(200);
   res.json({ post });
-  // setTimeout(deleteFile, 2000); //WTF NO, SEE LINE 149;
 }
 
 async function get(req, res) {
-  // console.log(req.params);
-  // insightsClient.trackNodeHttpRequest({ request: res, response: res });
   const post = await postModel.getPost(req.params.postId);
   res.status(200);
   res.json(post);
