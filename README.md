@@ -6,7 +6,8 @@
 
 [1. Movie-Archiver](##Movie-Archiver)  
 [2. Restful-People](##Restful-People)  
-[3. Social-Network](##Social-Network)
+[3. Social-Network](##Social-Network)  
+[4. Fractal-Land](##Fractal-Land)
 
 ---
 
@@ -99,7 +100,7 @@ The API will provide functionality for (_format specified in Postman_):
 1. Backend app : https://fii-cc-social-network.azurewebsites.net/posts/
 2. Frontend app : https://fiisocialnetworkfront.z22.web.core.windows.net/
 
-## Fractal Land
+## Fractal-Land
 
 [Final Project] **`/fractal-land`** -> A fractal builder library and platform
 #nodejs #aws #lambda #html #css
