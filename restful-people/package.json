@@ -19,7 +19,7 @@
     "dayjs": "^1.8.21",
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "typy": "^3.3.0",
     "winston": "^3.2.1"
   },
